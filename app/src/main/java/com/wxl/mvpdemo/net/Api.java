@@ -21,10 +21,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Api {
 
+
+
     private static BaseService mService;
 
 
-    public static BaseService getmService(){
+    public static BaseService getService(){
         if(mService==null){
             synchronized (Api.class){
                 if(mService==null){
