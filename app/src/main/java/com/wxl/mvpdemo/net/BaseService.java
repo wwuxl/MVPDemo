@@ -1,11 +1,14 @@
 package com.wxl.mvpdemo.net;
 
+import com.wxl.mvpdemo.model.Comment;
 import com.wxl.mvpdemo.model.User;
 
 import io.reactivex.Flowable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by wxl on 2018/1/15.
@@ -65,4 +68,13 @@ public interface BaseService {
             @Field("phone") String phone,
             @Field("type") int type
     );
+
+    /**
+     * 评价分页
+     */
+    @GET("shop/listComment")
+    Flowable<ResponseResult<Comment>> getCommentList(
+            @Query("page.CurrentPage") int currentPage,
+            @Query("page.PageSize") int pageSize,
+            @Query("queryType") int orderQueryType);
 }

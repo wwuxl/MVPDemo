@@ -29,7 +29,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:textSize="16sp"
-                android:text="网络错误"/>
+                android:text="网络错误！"/>
 
         </LinearLayout>
     </RelativeLayout>

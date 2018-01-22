@@ -43,7 +43,7 @@ public class ResponseSubscriber<T> extends ResourceSubscriber<T> {
                 //未登录
                 if(result.errorCode()==errorCode_logout){
                     //跳登录界面
-
+                    Toast.makeText(App.getContext(), "去登录", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -53,6 +53,7 @@ public class ResponseSubscriber<T> extends ResourceSubscriber<T> {
                     return;
                 }
                 Log.e("===","result == "+((IFResult) t).result());
+
                 //请求成功
                 mListener.onNext(t);
 
@@ -62,6 +63,7 @@ public class ResponseSubscriber<T> extends ResourceSubscriber<T> {
 
     @Override
     public void onError(Throwable t) {
+
         if (mListener!=null) {
             //网络错误
             mListener.onError(t);
@@ -71,6 +73,9 @@ public class ResponseSubscriber<T> extends ResourceSubscriber<T> {
 
     @Override
     public void onComplete() {
-
+        if (mListener!=null) {
+            //完成后调用
+            mListener.onComplete();
+        }
     }
 }

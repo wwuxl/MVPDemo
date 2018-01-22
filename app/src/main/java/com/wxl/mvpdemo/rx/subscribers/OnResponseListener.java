@@ -6,8 +6,8 @@ package com.wxl.mvpdemo.rx.subscribers;
 
 public interface OnResponseListener<T> {
     void onLoading();
-    void onNext(T t);
     void onError(Throwable t);
+    void onNext(T t);
     void onComplete();
 
 }
